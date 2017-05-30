@@ -12,6 +12,6 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
-app.listen(8080)
+app.listen(3000)
 
 console.log('listening on port 8080')
