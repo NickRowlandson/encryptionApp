@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
-app.listen(3000)
+var port = process.env.PORT||3000; //can run both on Azure or local
+var server = app.listen(process.env.PORT||3000);
 
-console.log('listening on port 8080')
+console.log('listening on port 3000')
