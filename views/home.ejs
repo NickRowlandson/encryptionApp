@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Encryption Application</title>
+  <title>Vignere Cipher</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <style>
     body {
@@ -21,6 +21,8 @@
 <body>
   <div class="container">
     <%- include('partials/navbar') %>
+    <h3>Encrypt</h3>
+    <hr>
     <form action="/encrypt" method="post">
         <input type="text" name="encryptValue" placeholder="Value" style="width:300px;" maxlength="60" />
         <input type="text" name="encryptKey" placeholder="Key" style="width:150px;" maxlength="10" />
@@ -30,11 +32,20 @@
         </select>
         <input type="submit" value="Encrypt"/>
     </form>
+    <%= JSON.stringify(encryptedMessage) %>
+    <h3>Decrypt</h3>
+    <hr>
+    <form action="/decrypt" method="post">
+        <input type="text" name="decryptValue" placeholder="Value" style="width:300px;" maxlength="60" />
+        <input type="text" name="decryptKey" placeholder="Key" style="width:150px;" maxlength="10" />
+        <select name="decryptType">
+          <option value="rot0">ROT0</option>
+          <option value="rot1">ROT1</option>
+        </select>
+        <input type="submit" value="Decrypt"/>
+    </form>
+    <%= JSON.stringify(decryptedMessage) %>
     <%- include('partials/footer') %>
   </div>
 </body>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
 </html>
